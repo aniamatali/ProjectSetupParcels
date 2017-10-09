@@ -37,7 +37,7 @@ namespace Parcel.Models
     }
     public int GetVolume()
     {
-      return GetLength()*GetWidth()*GetHeight();
+      return _height*_length*_width;
     }
   }
 }
