@@ -14,7 +14,7 @@ namespace Parcel.Models
     public void SetParcel(string newLength, string newWidth, string newHeight, string newWeight)
     {
       if (newLength == "" || newWidth == "" || newHeight == "" || newWeight == "") {
-        blah = "There is A null PROPERTY";
+        blah = "You left something blank please try again.";
       }else{
         _length = int.Parse(newLength);
         _width = int.Parse(newWidth);
