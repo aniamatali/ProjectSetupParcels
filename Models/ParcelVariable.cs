@@ -1,3 +1,4 @@
+using System;
 namespace Parcel.Models
 {
 
@@ -8,12 +9,22 @@ namespace Parcel.Models
     private int _height;
     private int _weight;
 
+    public string blah;
+
     public void SetParcel(string newLength, string newWidth, string newHeight, string newWeight)
     {
-      _length = int.Parse(newLength);
-      _width = int.Parse(newWidth);
-      _height = int.Parse(newHeight);
-      _weight = int.Parse(newWeight);
+      if (newLength == "" || newWidth == "" || newHeight == "" || newWeight == "") {
+        blah = "There is A null PROPERTY";
+      }else{
+        _length = int.Parse(newLength);
+        _width = int.Parse(newWidth);
+        _height = int.Parse(newHeight);
+        _weight = int.Parse(newWeight);
+      }
+    }
+
+    public string Alert(){
+      return blah;
     }
 
     public int GetLength()
@@ -35,9 +46,15 @@ namespace Parcel.Models
     {
       return _weight;
     }
+
     public int GetVolume()
     {
       return _height*_length*_width;
+    }
+
+    public int CostToShip()
+    {
+      return GetVolume()*_weight;
     }
   }
 }
